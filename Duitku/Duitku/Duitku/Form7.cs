@@ -110,7 +110,7 @@ namespace Duitku
             {
                 conn.Open();
                 dgvRiwayat.DataSource = null;
-                sql = "select * from dt_select_outcome()";
+                sql = "select * from dt_select_outcome() where id_user = '" + Pengguna.ID_user + "'";
                 cmd = new NpgsqlCommand(sql, conn);
                 dt = new DataTable();
                 NpgsqlDataReader rd = cmd.ExecuteReader();
@@ -122,6 +122,11 @@ namespace Duitku
             {
                 MessageBox.Show("Error : " + ex.Message, "Insert FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvRiwayat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
